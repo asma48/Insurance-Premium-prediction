@@ -12,7 +12,6 @@ from sklearn.linear_model import LinearRegression
 
 
 data = pd.read_csv("app\data\insurance.csv")
-data.head()
 
 
 num_features= ["age", "bmi", "children"]
