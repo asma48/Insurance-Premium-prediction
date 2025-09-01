@@ -1,6 +1,6 @@
 import pandas as pd
 import joblib
-
+import numpy as np
 from sklearn.model_selection import train_test_split 
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
@@ -46,7 +46,8 @@ model = Pipeline(
 model.fit(X_train, Y_train)
 y_predict = model.predict(X_valid)
 
+rmse = np.sqrt(mean_squared_error(Y_valid, y_predict))
+print("RMSE:", rmse)
 
-#print("RMSE: ", mean_squared_error(Y_valid, y_predict, squared=False))
 
 joblib.dump(model, "app\model\model_rf.pkl")
